@@ -9,3 +9,11 @@
 // OPTIONAL
 // Feel free to add some CSS to this once you're done
 // --------------------------------------------------
+
+const click = document.querySelector('.click');
+
+function handleClick(e){
+ click.innerText = 'You Win';
+ document.removeEventListener('click', handleClick);
+}
+document.addEventListener('click',handleClick);

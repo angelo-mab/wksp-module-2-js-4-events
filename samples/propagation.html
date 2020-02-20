@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
-
-<body>
+  <body>
     <p>A paragraph with a <button id="the-btn">button</button>.</p>
     <script>
-        let para = document.querySelector("p");
-        let button = document.querySelector("button");
+      let para = document.querySelector("p");
+      let button = document.querySelector("button");
 
-        para.addEventListener("mousedown", () => {
-          console.log("Handler for paragraph.");
-        });
-        
-        button.addEventListener("mousedown", event => {
-          console.log("Handler for button.");
-          if (event.button === 2) event.stopPropagation();
-        });
-      </script>
-</body>
+      para.addEventListener("mousedown", () => {
+        console.log("Handler for paragraph.");
+      });
 
+      button.addEventListener("mousedown", event => {
+        console.log(event.target.id);
+        // console.log("Handler for button.");
+        if (event.button === 2) event.stopPropagation();
+      });
+    </script>
+  </body>
 </html>

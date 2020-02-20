@@ -1,0 +1,19 @@
+.main{
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+}
+
+button {
+ height: 100px;
+ width: 100px;
+ background: red;
+ color: white;
+ font-size: 30px;
+ border: none;
+ margin: none;
+}
+
+.green{
+ background: green;
+}

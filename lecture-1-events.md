@@ -26,12 +26,11 @@ Open the door, when someone is there.
 
 #### User Interface Events
 
-- `load`
-- `unload`
+- `load` takes in data
+- `unload` removes the data
 - `error`
-- `resize`
-- `scroll`
-
+- `resize` resizing the screen
+- `scroll` when user is scrolling
 ---
 
 #### Focus and Blur Events
@@ -39,7 +38,9 @@ Open the door, when someone is there.
 These events fire when the HTML elements you can interact with gain/ lose focus.
 
 - `focus`
+gaining focus - the blue border/ attention
 - `blur`
+opposite of focus
 - `focusin` (_new; not supported by Firefox_)
 - `focusout` (_new; same as blur; not supported by Firefox_)
 
@@ -49,42 +50,42 @@ These events fire when the HTML elements you can interact with gain/ lose focus.
 
 - `click`
 - `dblclick`
-- `mousedown`
-- `mouseup`
-- `mouseover`
-- `mouseout`
-- `mousemove`
+- `mousedown` - click and hold
+- `mouseup` - when letting of the click
+- `mouseover` - hover
+- `mouseout` - hover away
+- `mousemove` -anytime a mouse moves
 
 ---
 
 ##### Keyboard Events
 
 - `input`
-- `keydown`
-- `keypress`
-- `keyup`
+- `keydown` - when holding down a key (fffffffffffffffffffff)
+- `keypress` - a single press
+- `keyup` - when the key has been released
 
 ---
 
 ### Form Events
 
-- `submit`
-- `change`
+- `submit` - type: submit, it will trigger an event
+- `change` - 
 - `input`
 
 ---
 
 ### HTML5 Events
 
-- `DOMContentLoaded`
-- `hashchange`
-- `beforeunload`
+- `DOMContentLoaded` - when the content is loaded
+- `hashchange` - 
+- `beforeunload` - before leaving the site or browser, helpful when forgetting to send or save an email. bad when you're making a garbage site
 
 ---
 
 ### CSS Events
 
-- `transitionend`
+- `transitionend` - when a 
 - `animationstart`
 - `animationend`
 
@@ -95,10 +96,22 @@ These events fire when the HTML elements you can interact with gain/ lose focus.
 All DOM nodes have methods we can use to _notify_ us of an event.
 
 - [`addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
-- [`removeEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)
-
+- [`removeEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener) - to clean up after yourself (game over screen)
 ```js
 // Example
+//create a button w/ id of button
+
+const button = document.getElementById('btn');
+function handleOuch = function(){
+    console.log('ouch!');
+};
+
+//addEventListener() and removeEventListener() takes 2 arguments
+//add event listener
+button.addEventListener('click', handleOuch);
+//remove event listener
+button.removeEventListener('click', handleOuch);
+
 
 ```
 
@@ -107,10 +120,11 @@ All DOM nodes have methods we can use to _notify_ us of an event.
 ### [Event Object](https://www.w3schools.com/jsref/obj_event.asp)
 
 Event handler functions are passed an argument, when events are triggered.
+//even handlers receive arguments when triggered
 
 This object includes lots of stuff.
 
-- `preventDefault()`
+- `preventDefault()` - 
 - `target`
 - `stopPropagation()`
 
@@ -126,7 +140,7 @@ Some events have _default_ actions associated to them.
 
 In most cases handlers are called _before_ the default action takes place.
 
-You can prevent the _default_ action from happening by calling `event.preventDefault();` in the eventListener function.
+You can **prevent** the _default_ action from happening by calling `event.preventDefault();` in the eventListener function.
 
 ---
     
@@ -181,8 +195,13 @@ para.addEventListener("mousedown", () => {
 
 button.addEventListener("mousedown", event => {
     console.log("Handler for button.");
+    //if you right click, it stops and triggers this event and nothing else coming up.
     if (event.button == 2) event.stopPropagation();
 });
+
+//specific as posible first then it triggers everything bubbling up
+//in this sit. "Handler for button" prints first.
+//the button triggers the specific then goes up
 ```
 ---
 
